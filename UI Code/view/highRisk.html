@@ -1,0 +1,144 @@
+
+
+<div ng-if="(updateSuccess && responseExist)" class=" col-md-3 pull-right alert alert-success fade in">
+   <a  class="close"  data-dismiss="alert">&times;</a> <strong>Success!</strong> Updated successfully.
+  </div>
+  <div ng-if="(!updateSuccess && responseExist)" class=" col-md-3 pull-right alert alert-danger fade in">
+   <a href="#" class="close"  data-dismiss="alert">&times;</a> <strong>Warning!</strong> Some error occured, please try again later.
+  </div>
+
+<div ng-cloak class="center">
+<h1>High Risk Page</h1>
+<div id="mydiv" ng-show="loading">
+    <img src="loading.gif" class="ajax-loader"/>
+</div>
+<div >
+
+    <div class="pull-right">
+        <input type="text" ng-model="searchItem.startDate" jqdatepicker placeholder=" Start Date" /> 
+        <input type="text" ng-model="searchItem.endDate" jqdatepicker placeholder=" End Date"/> 
+        <button <i class="fa fa-calendar"></i></button>
+    </div><br><br>
+
+    <div class="row well"> 
+        <div class="col-md-2 filterBox">
+         <div><label for="ticketID">Ticket ID</label></div>
+            <input ng-model="searchItem.tickedID"type="text" placeholder=" Ticket ID"/ >
+        </div>
+        <div class="col-md-2 filterBox">
+            <div><label for="orderId">Order Code</label></div>
+            <input ng-model="searchItem.orderCode" type="text" placeholder=" Order Code"/ >
+        </div>
+        <div class="col-md-2 filterBox">
+            <div><label for="URN">URN</label></div>
+            <input ng-model="searchItem.urn" type="text" placeholder=" URN"/ >
+        </div>
+         <div class="col-md-2 filterBox">
+            <div><label for="orderId">Account Number</label></div>
+            <input ng-model="searchItem.accNo" type="text" placeholder=" Account Number"/ >
+        </div>
+        <div class="col-md-2 filterBox">
+            <div><label for="orderId">Suborder Code</label></div>
+            <input ng-model="searchItem.subOrderCode" type="text" placeholder=" Suborder Code"/ >
+        </div>
+
+        <button ng-click="filter()"class="pull-right"><i class="fa fa-filter "></i></button>
+    </div>
+
+    <!-- Search -->
+
+<div class="pull-right" style="font-weight: bold">Total Count : {{count}}</div>
+<table style="width:100%">
+  <tr>
+    <th class="infoBox" >Ticket ID</th>
+    <th class="infoBox">Issue Category</th>       
+    <th class="infoBox">CCA</th>
+    <th class="infoBox">Order Details</th>
+    <th class="infoBox">Customer Details
+    </th>  
+    <th class="infoBox">Bank Account Details</th>
+    <th class="infoBox">Amount</th>
+    <th class="infoBox">Mode</th>       
+    <th class="infoBox">Time</th>
+    <th class="infoBox">URN</th>
+    <th class="infoBox">UTR</th>       
+    <th class="infoBox">Status</th>
+  </tr>
+  <tr class="infoBox" ng-repeat="item in data">
+    <td class="infoBox">{{item.tickedID}}</td>
+    <td class="infoBox">{{item.issueCategory}}</td>      
+    <td class="infoBox">{{item.rmsApproved}}</td>
+    <td class="infoBox">
+        <table>
+          <tr >
+            <td>Order Code : </td>
+            <td> {{item.orderCode}}</td>     
+          </tr>
+          <tr >
+            <td>Suborder Code : </td>
+            <td>{{item.suborderCode}}</td>      
+          </tr>
+        </table>
+    </td>      
+     
+     <td class="infoBox">
+        <table>
+          <tr >
+            <td>Name : </td>
+            <td> {{item.customerName}}</td>      
+          </tr>
+          <tr >
+            <td>Email : </td>
+            <td>{{item.emailAddress}}</td>      
+          </tr>
+          <tr >
+            <td>Address : </td>
+            <td>{{item.CustomerDetails.Address}}</td>      
+          </tr>
+      </table>
+     </td>
+    <td class="infoBox">
+        <table>
+          <tr >
+            <td>Name : </td>
+            <td> {{item.benificaryName}}</td>     
+          </tr>
+          <tr >
+            <td>Account Number : </td>
+            <td> {{item.accountNumber}}</td>     
+          </tr>
+          <tr >
+            <td>Bank Name : </td>
+            <td>Yes Bank</td>      
+          </tr>
+          <tr >
+            <td>IFSC : </td>
+            <td>{{item.ifscCode}}</td>
+          </tr>
+      </table>
+    </td>      
+    <td class="infoBox">{{item.amount}}</td>
+    <td class="infoBox">{{item.mode}}</td>
+    <td class="infoBox">{{item.age}}</td>      
+    <td class="infoBox">{{item.urn}}</td>
+    <td class="infoBox">{{item.bankReferenceNumber}}</td>
+    <td class="infoBox">
+        <div>
+            <select ng-model="selectedStatus"
+                 ng-options="item as item for item in items"
+                 ng-confirmed-click="updateStatus(item.requestID, item.suborderRequestID, selectedStatus)"  ng-confirm-click="Would you like to change the status">
+            </select>
+        </div>
+    </td>
+  </tr>
+</table>
+
+</div>
+
+<div class="pull-right">
+<nav>
+  <ul class="pager">
+    <li ><a class="paginationButton" href="#/" ng-click="getNext()">Next</a></li>
+  </ul>
+</nav>
+</div>

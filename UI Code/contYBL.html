@@ -1,0 +1,197 @@
+<div class="center">
+<!-- <div class="row">
+    <div class="col-md-1 infoBox">Ticket ID</div>
+    <div class="col-md-1 infoBox">Issue Category</div>
+    <div class="col-md-1 infoBox">CCA</div>
+    <div class="col-md-1 infoBox">Order Details</div>
+    <div class="col-md-1 infoBox">Customer Details
+        <div class="table-responsive">          
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Firstname</th>
+              </tr>
+            </thead> 
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td>Anna</td>
+              </tr>
+              <tr>
+                <td>Emai</td>
+                <td>Debbie</td>
+              </tr>
+              <tr>
+                <td>Phone</td>
+                <td>John</td>
+              </tr>
+              <tr>
+                <td>Address</td>
+                <td>John</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+    <div class="col-md-1 infoBox">Bank Account Details</div>
+    <div class="col-md-1 infoBox">Amount</div>
+    <div class="col-md-1 infoBox ">Mode</div>
+    <div class="col-md-1 infoBox">Time</div>
+    <div class="col-md-1 infoBox">URN</div>
+    <div class="col-md-1 infoBox">UTR</div>
+    <div class="col-md-1 infoBox">Status
+        <div>
+            <select ng-model="selectedStatus">
+                <option ng-repeat="item in items" value="{{item}}">{{item}}</option>
+            </select>
+        </div>
+    </div>
+
+
+</div>
+ -->
+
+<div >
+
+    <div class="pull-right">
+        <input type="date" ng-model="startDate" id="datepicker" />
+        <input type="date" ng-model="endDate" id="datepicker" />
+        <button><i class="fa fa-search"></i></button>
+    </div><br><br>
+
+    <div class="row well"> 
+        <div ><label > Filter </label></div>
+        <div class="col-md-2 filterBox">
+            <div><label for="ticketId">Ticket ID</label></div>
+            <input ng-model="searchItem.ticket"type="text" placeholder=" Ticket ID"/ >
+        </div>
+        <div class="col-md-2 filterBox">
+            <div><label for="orderId">Order ID</label></div>
+            <input ng-model="searchItem.order" type="text" placeholder=" Order ID"/ >
+        </div>
+        <div class="col-md-2 filterBox">
+            <div><label for="URN">URN</label></div>
+            <input ng-model="searchItem.urn" type="text" placeholder=" URN"/ >
+        </div>
+        <div class="col-md-2 filterBox">
+            <div><label for="customerEmail">Customer Email</label></div>
+            <input ng-model="searchItem.email" type="text" placeholder=" Customer email" />
+        </div>
+
+        <button ng-click="filter()"class="pull-right"><i class="fa fa-filter "></i></button>
+    </div>
+
+    <!-- Search -->
+
+     <div ><h3 > Search </h3></div>
+     <div class="row well"> 
+       
+        <div class="col-md-2 filterBox">
+            <div><label for="ticketId">Ticket ID</label></div>
+            <input ng-model="searchItem.ticket"type="text" placeholder=" Ticket ID"/ >
+        </div>
+        <div class="col-md-2 filterBox">
+            <div><label for="orderId">Order ID</label></div>
+            <input ng-model="searchItem.order" type="text" placeholder=" Order ID"/ >
+        </div>
+        <div class="col-md-2 filterBox">
+            <div><label for="URN">URN</label></div>
+            <input ng-model="searchItem.urn" type="text" placeholder=" URN"/ >
+        </div>
+        <div class="col-md-2 filterBox">
+            <div><label for="customerEmail">Customer Email</label></div>
+            <input ng-model="searchItem.email" type="text" placeholder=" Customer email" />
+        </div>
+        <button ng-click="filter()"class="pull-right"><i class="fa fa-search "></i></button>
+    </div>
+</div>
+
+
+<table style="width:100%">
+  <tr>
+    <th class="infoBox" >Ticket ID</th>
+    <th class="infoBox">Issue Category</th>       
+    <th class="infoBox">CCA</th>
+    <th class="infoBox">Order Details</th>
+    <th class="infoBox">Customer Details
+    </th>  
+    <th class="infoBox">Bank Account Details</th>
+    <th class="infoBox">Amount</th>
+    <th class="infoBox">Mode</th>       
+    <th class="infoBox">Time</th>
+    <th class="infoBox">URN</th>
+    <th class="infoBox">UTR</th>       
+    <th class="infoBox">Status</th>
+  </tr>
+  <tr class="infoBox" ng-repeat="item in data">
+    <td class="infoBox">{{item.TicketID}}</td>
+    <td class="infoBox">{{item.Amount}}</td>      
+    <td class="infoBox">{{item.CCA}}</td>
+    <!--  <td ><div class="infoBox">
+            <tr>
+                <td>{{item}}</td>
+                
+            </tr>
+          </div>
+      </td> -->
+    <td class="infoBox">{{item["Order Details"]}}</td>      
+     <!--  <td ><div class="infoBox">
+            <tr>
+                <td>{{item}}</td>
+                
+            </tr>
+          </div>
+      </td> -->
+     <td class="infoBox">
+        <table>
+          
+          <tr >
+            <td>Name : </td>
+            <td> {{item.CustomerDetails.name}}</td>      
+          </tr>
+          <tr >
+            <td>Email : </td>
+            <td>{{item.CustomerDetails.Email}}</td>      
+          </tr>
+          <tr >
+            <td>Address : </td>
+            <td>{{item.CustomerDetails.Address}}</td>      
+          </tr>
+      </table>
+     </td>
+    <td class="infoBox">
+        <table>
+          
+          <tr >
+            <td>Account Number : </td>
+            <td> {{item.BankDetails["Account Number"]}}</td>      
+          </tr>
+          <tr >
+            <td>Bank Name : </td>
+            <td>{{item.BankDetails["Bank Name"]}}</td>      
+          </tr>
+          <tr >
+            <td>IFSC : </td>
+            <td>{{item.BankDetails.IFSC}}</td>      
+          </tr>
+      </table>
+    </td>      
+    <td class="infoBox">{{item.Amount}}</td>
+     <td class="infoBox">{{item.Mode}}</td>
+    <td class="infoBox">{{item.Time}}</td>      
+    <td class="infoBox">{{item.URN}}</td>
+    <td class="infoBox">{{item.UTR}}</td>
+    <td class="infoBox">
+
+        <div>
+            <select ng-model="selectedStatus">
+                <option ng-repeat="item in items" value="{{item}}">{{item}}</option>
+            </select>
+        </div>
+    </td>
+  </tr>
+</table>
+
+
+</div>

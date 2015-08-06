@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="falcon">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width">
+        <title>Falcon</title>
+		
+        <link rel="stylesheet" href="CSS/jquery-ui.min.css">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css">
+        <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+        <link rel="stylesheet" href="CSS/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="CSS/app.css">
+    </head>
+     
+<body>
+        <div class="center " ng-controller="mainController">
+         <ul class="nav nav-tabs">
+              <li role="presentation" class="active"><a href="#/">Contact YBL</a></li>
+              <li role="presentation"><a href="#/failureRetry">Failure Retry</a></li>
+              <li role="presentation"><a href="#/highRisk">High Risk</a></li>
+         </ul>
+        </div><br>  
+        </div><br>
+
+        <div ng-view></div>
+
+    <!-- <script type="text/javascript" src="JS/jquery.min.js"></script>
+    <script type="text/javascript" src="JS/jquery-ui.min.js"></script> -->
+
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.2/jquery.min.js"></script> -->
+    <script type="text/javascript" src="JS/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="JS/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="JS/bootstrap.min.js"></script>
+    <script type="text/javascript" src="JS/angular.js"></script>
+    <script type="text/javascript" src="JS/angular-route.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-resource.js"></script>
+     -->
+    <script type="text/javascript" src="JS/app.js"></script>
+    <script type="text/javascript" src="JS/contactBank.js"></script>
+    <script type="text/javascript" src="JS/data.js"></script>
+    <script type="text/javascript" src="JS/highRisk.js"></script>
+
+</body>
+
+</html>

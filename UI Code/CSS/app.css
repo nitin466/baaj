@@ -1,0 +1,58 @@
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+ }
+
+.center {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+}
+
+.infoBox {
+    height: 40px;
+    border: solid 1px grey;
+    //width:auto;
+    padding-left:5px;
+    background: #F4F4FF;
+}
+
+.filterBox{
+    //border-right: solid white 5px
+    border-radius: 3px;
+}
+.updateField {
+    height: 50px;
+    padding: 5px;
+    font-size: 20px;
+}
+.date{
+    width: 100%;
+}
+.paginationButton{
+    width: 85px;
+}
+
+#mydiv {  
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1000;
+    background-color:grey;
+    opacity: .8;
+ }
+
+.ajax-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -32px; /* -1 * image width / 2 */
+    margin-top: -32px;  /* -1 * image height / 2 */
+    display: block;     
+}
+
+<div id="mydiv">
+    <img src="lib/jQuery/images/ajax-loader.gif" class="ajax-loader"/>
+</div>
